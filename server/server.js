@@ -1334,48 +1334,97 @@
     };
     var seedData = {
         
-        games: {
-           "5c7d8f0e-3a9b-4c2d-9e1f-6a4b3c8d2e7a": {
-            "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-            "title": "The Witcher 3",
-            "genre": "Open World",
-            "players": 32000,
-            "date": "2015-05-19",
-            "imageUrl": "/images/witcher.png",
-            "summary": "A story-driven, open world fantasy RPG. Play as Geralt of Rivia, a monster slayer for hire, who must find the Child of Prophecy in a vast, war-torn world. The game is known for its morally gray choices, mature storyline, and expansive world exploration.",
-            "_createdOn": 1617194350000
-        },
-        "7b9a2c4f-1d5e-4b6c-8a3d-2f1e0g3h4i5j": {
-            "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-            "title": "Elden Ring",
-            "genre": "Action RPG",
-            "players": 105000,
-            "date": "2022-02-25",
-            "imageUrl": "/images/elden ring.png",
-            "summary": "A monumental fantasy action RPG developed by FromSoftware and Bandai Namco. Set in the Lands Between, players embark on an epic quest to become the Elden Lord, exploring a vast open world designed by Hidetaka Miyazaki, with worldbuilding contributed by fantasy author George R. R. Martin.",
-            "_createdOn": 1645708800000
-        },
-        "3d4e5f6g-7h8i-9j0k-1l2m-3n4o5p6q7r8s": {
-            "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-            "title": "Minecraft",
-            "genre": "Sandbox",
-            "players": 1400000,
-            "date": "2011-11-18",
-            "imageUrl": "/images/minecraft.png",
-            "summary": "Minecraft is a sandbox video game where players explore a blocky, procedurally generated 3D world with infinite terrain. Players may discover and extract raw materials, craft tools and items, and build structures, earthworks and simple machines.",
-            "_createdOn": 1617194450000
-        },
-        "9f8e7d6c-5b4a-3c2d-1e0f-9g8h7i6j5k4l": {
-            "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-            "title": "Cyberpunk 2077",
-            "genre": "Action RPG",
-            "players": 85000,
-            "date": "2020-12-10",
-            "imageUrl": "/images/cyberpunk.png",
-            "summary": "An open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality.",
-            "_createdOn": 1607558400000
-            }
-        },
+        concerts: {
+    "a1b2c3d4-e001-4aaa-9bbb-111111111111": {
+        "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+        "band": "Iron Maiden",
+        "date": "2019-07-12",
+        "location": "Wembley Stadium, London",
+        "audience": 80000,
+        "genre": "Heavy Metal",
+        "imageUrl": "/images/iron-maiden.jpg",
+        "summary": "Epic live show with classic Iron Maiden anthems and massive stage production.",
+        "_createdOn": 1562928000000
+    },
+    "a1b2c3d4-e002-4aaa-9bbb-222222222222": {
+        "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+        "band": "Metallica",
+        "date": "2018-09-05",
+        "location": "Madison Square Garden, New York",
+        "audience": 20000,
+        "genre": "Thrash Metal",
+        "imageUrl": "/images/metallica.jpg",
+        "summary": "A legendary night with one of the biggest thrash metal bands in history.",
+        "_createdOn": 1536134400000
+    },
+    "a1b2c3d4-e003-4aaa-9bbb-333333333333": {
+        "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+        "band": "Slipknot",
+        "date": "2022-06-18",
+        "location": "Hellfest, Clisson, France",
+        "audience": 45000,
+        "genre": "Nu Metal",
+        "imageUrl": "/images/slipknot.jpg",
+        "summary": "An intense and aggressive performance at one of Europe's biggest metal festivals.",
+        "_createdOn": 1655481600000
+    },
+    "a1b2c3d4-e004-4aaa-9bbb-444444444444": {
+        "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+        "band": "Rammstein",
+        "date": "2022-07-30",
+        "location": "Olympiastadion, Berlin",
+        "audience": 65000,
+        "genre": "Industrial Metal",
+        "imageUrl": "/images/rammstein.jpg",
+        "summary": "Massive pyrotechnics and brutal sound in a sold-out stadium show.",
+        "_createdOn": 1659139200000
+    },
+
+    "a1b2c3d4-e005-4aaa-9bbb-555555555555": {
+        "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+        "band": "Ghost",
+        "date": "2026-02-20",
+        "location": "Royal Arena, Copenhagen",
+        "audience": 0,
+        "genre": "Heavy Metal / Hard Rock",
+        "imageUrl": "/images/ghost.jpg",
+        "summary": "A theatrical and melodic metal show with a dark, occult atmosphere.",
+        "_createdOn": 1737331200000
+    },
+    "a1b2c3d4-e006-4aaa-9bbb-666666666666": {
+        "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+        "band": "Judas Priest",
+        "date": "2026-05-14",
+        "location": "Arena Armeec, Sofia",
+        "audience": 0,
+        "genre": "Heavy Metal",
+        "imageUrl": "/images/judas-priest.jpg",
+        "summary": "Metal gods return with a classic heavy metal setlist.",
+        "_createdOn": 1747180800000
+    },
+    "a1b2c3d4-e007-4aaa-9bbb-777777777777": {
+        "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+        "band": "Behemoth",
+        "date": "2026-03-09",
+        "location": "Huxleys Neue Welt, Berlin",
+        "audience": 0,
+        "genre": "Black / Death Metal",
+        "imageUrl": "/images/behemoth.jpg",
+        "summary": "A dark and ritualistic extreme metal experience.",
+        "_createdOn": 1739740800000
+    },
+    "a1b2c3d4-e008-4aaa-9bbb-888888888888": {
+        "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+        "band": "Megadeth",
+        "date": "2026-06-22",
+        "location": "O2 Arena, Prague",
+        "audience": 0,
+        "genre": "Thrash Metal",
+        "imageUrl": "/images/megadeth.jpg",
+        "summary": "Thrash metal classics performed by one of the genre's pioneers.",
+        "_createdOn": 1750540800000
+    }
+},
         comments: {
         
         }
