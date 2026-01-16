@@ -1342,7 +1342,7 @@
         "location": "Wembley Stadium, London",
         "audience": 80000,
         "genre": "Heavy Metal",
-        "imageUrl": "/images/iron-maiden.jpg",
+        "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.HTBdIZ1U7gcwY0H8MDrwTQHaEF?rs=1&pid=ImgDetMain&o=7&rm=3",
         "summary": "Epic live show with classic Iron Maiden anthems and massive stage production.",
         "_createdOn": 1562928000000
     },
@@ -1353,7 +1353,7 @@
         "location": "Madison Square Garden, New York",
         "audience": 20000,
         "genre": "Thrash Metal",
-        "imageUrl": "/images/metallica.jpg",
+        "imageUrl": "https://www.rollingstone.de/wp-content/uploads/2023/04/14/10/metallica-scaled.jpg",
         "summary": "A legendary night with one of the biggest thrash metal bands in history.",
         "_createdOn": 1536134400000
     },
@@ -1364,7 +1364,7 @@
         "location": "Hellfest, Clisson, France",
         "audience": 45000,
         "genre": "Nu Metal",
-        "imageUrl": "/images/slipknot.jpg",
+        "imageUrl": "https://static1.srcdn.com/wordpress/wp-content/uploads/2025/03/slipknot-1.jpg",
         "summary": "An intense and aggressive performance at one of Europe's biggest metal festivals.",
         "_createdOn": 1655481600000
     },
@@ -1375,7 +1375,7 @@
         "location": "Olympiastadion, Berlin",
         "audience": 65000,
         "genre": "Industrial Metal",
-        "imageUrl": "/images/rammstein.jpg",
+        "imageUrl": "https://images.universal-music.de/img/assets/474/474066/995/720/rammstein.jpg",
         "summary": "Massive pyrotechnics and brutal sound in a sold-out stadium show.",
         "_createdOn": 1659139200000
     },
@@ -1387,7 +1387,7 @@
         "location": "Royal Arena, Copenhagen",
         "audience": 0,
         "genre": "Heavy Metal / Hard Rock",
-        "imageUrl": "/images/ghost.jpg",
+        "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.20BsJ9u0yjJvON-LH8RYtgHaEu?rs=1&pid=ImgDetMain&o=7&rm=3",
         "summary": "A theatrical and melodic metal show with a dark, occult atmosphere.",
         "_createdOn": 1737331200000
     },
@@ -1398,7 +1398,7 @@
         "location": "Arena Armeec, Sofia",
         "audience": 0,
         "genre": "Heavy Metal",
-        "imageUrl": "/images/judas-priest.jpg",
+        "imageUrl": "https://dynamicmedia.livenationinternational.com/g/z/h/103bb506-e62b-46f9-b383-425531fcc8d7.jpeg",
         "summary": "Metal gods return with a classic heavy metal setlist.",
         "_createdOn": 1747180800000
     },
@@ -1409,7 +1409,7 @@
         "location": "Huxleys Neue Welt, Berlin",
         "audience": 0,
         "genre": "Black / Death Metal",
-        "imageUrl": "/images/behemoth.jpg",
+        "imageUrl": "https://townsquare.media/site/366/files/2021/10/attachment-Behemoth_Day1__064.jpg",
         "summary": "A dark and ritualistic extreme metal experience.",
         "_createdOn": 1739740800000
     },
@@ -1420,7 +1420,7 @@
         "location": "O2 Arena, Prague",
         "audience": 0,
         "genre": "Thrash Metal",
-        "imageUrl": "/images/megadeth.jpg",
+        "imageUrl": "https://tse1.mm.bing.net/th/id/OIP.fbMs_spoa4GG2xgiE5pAQwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
         "summary": "Thrash metal classics performed by one of the genre's pioneers.",
         "_createdOn": 1750540800000
     }
