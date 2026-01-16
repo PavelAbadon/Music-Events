@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { login } from "../../services/authService.js";
+import { useNavigate } from "react-router";
 
 export default function Login() {
     const [formData, setFormData] = useState({
@@ -7,13 +9,14 @@ export default function Login() {
     });
 
     const [emptyFields, setEmptyFields] = useState("");
+    const navigate = useNavigate();
 
 
-    const onChange = (e) => {
+    const onChange =  (e) => {
         setFormData(state => ({ ...state, [e.target.name]: e.target.value }));
     };
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
 
         if (!formData.email || !formData.password) {
@@ -22,9 +25,14 @@ export default function Login() {
         }
 
         setEmptyFields("");
-        console.log("VALID DATA", formData);
+        try {
+            const userData = await login(formData.email, formData.password);
+            console.log("LOGGED IN USER:", userData);
 
-        console.log(formData);
+            navigate('/');
+        } catch (err) {
+            setEmptyFields(err.message);
+        }
     };
 
 
