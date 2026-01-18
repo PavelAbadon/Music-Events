@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router";
+import { useState } from "react";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -7,14 +8,17 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 
 export default function App() {
+	const [user, setUser] = useState(null);
+	
+
   return (
     <>
-      <Header />
+      <Header user={user}/>
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register user={user} setUser={setUser} />} />
       </Routes>
       
       <Footer />
