@@ -13,7 +13,10 @@ export default function Header({ user }) {
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
         <Link>Logout</Link>
-        <a>{user ?<p>{user.email}</p> : <p>Hello guest</p>}</a>
+        {user
+  		? <span>Welcome, {user.email}</span>
+  		: <span>Hello guest</span>
+		}
       </nav>
     </header>
   );

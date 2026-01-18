@@ -1,10 +1,13 @@
+import { useNavigate } from "react-router";
 
 export default function Register({
-	user, setUser
+	onRegister,
 }) {
 	
+	const navigate = useNavigate();
 
   	const registerSubmit = (formData) =>{
+		
 		const email = formData.get('email');
 		const password = formData.get('password');
 		const repassword = formData.get('repassword');
@@ -18,9 +21,10 @@ export default function Register({
 			return alert('password must be equal to repassword')
 		}
 	//todo Fake API call
-		setUser({email,});
+		onRegister(email);
 
 	//todo redirection
+	navigate('/');
 
   }
 
@@ -28,8 +32,7 @@ export default function Register({
     <div className="auth-page">
       <form className="auth-form" action={registerSubmit} >
         <h2>Register</h2>
-        {user && <h3>Hello {user.email}</h3>}
-
+        
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input

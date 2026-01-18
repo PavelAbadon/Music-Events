@@ -8,7 +8,14 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 
 export default function App() {
+	
 	const [user, setUser] = useState(null);
+	
+	const authHandler = (email) => {
+		setUser({
+			email,
+		})
+	}
 	
 
   return (
@@ -17,8 +24,8 @@ export default function App() {
 
       <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register user={user} setUser={setUser} />} />
+          <Route path="/login" element={<Login onLogin={authHandler}/>} />
+          <Route path="/register" element={<Register  onRegister={authHandler} />} />
       </Routes>
       
       <Footer />

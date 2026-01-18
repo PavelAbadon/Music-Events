@@ -1,10 +1,33 @@
+import { useNavigate } from "react-router";
 
-export default function Login() {
-        
+export default function Login({
+  onLogin
+}) {
+    
+    const navigate = useNavigate();
+
+    const loginSubmit = (formData) =>{
+        const email = formData.get('email');
+        const password = formData.get('password');
+
+        if(!email || !password){
+			return alert('email or password are requaired')
+		}
+
+        try {
+            onLogin(email, password);
+            navigate('/');
+            
+        } catch (err) {
+            alert(err.message);
+
+        } 
+
+    }
 
   return (
     <div className="auth-page">
-      <form className="auth-form" >
+      <form className="auth-form" action={loginSubmit}>
         <h2>Login</h2>
         
         <div className="form-group">
