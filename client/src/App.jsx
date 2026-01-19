@@ -19,18 +19,20 @@ export default function App() {
 
 		const newUser = {email, password}
 
-		setRegisterdUsers(state => [...state, { newUser}]);
+		setRegisterdUsers(state => [...state,  newUser]);
 		//automatic login user
 		
 		setUser (newUser);
 	}
 
 	const loginHandler = (email, password) => {
-		if(!user){
+
+		const foundUser = registerdUsers.find(user => user.email === email && user.password === password);
+		if(!foundUser){
 			throw new Error('Invalid user');
 		}
 
-		if(email !== user.email || password !== user.password){
+		if(email !== foundUser.email || password !== foundUser.password){
 			throw new Error('Invalid email or password');
 		}
 		
