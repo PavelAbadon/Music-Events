@@ -20,11 +20,17 @@ export default function Register({
 		if(password !== repassword){
 			return alert('password must be equal to repassword')
 		}
-	//todo Fake API call
-		onRegister(email);
+		try {
+			//todo Fake API call
+			onRegister(email, password);
 
-	//todo redirection
-	navigate('/');
+			//todo redirection
+			navigate('/');
+			
+		} catch (err) {
+			alert(err.message);
+		}
+
 
   }
 

@@ -10,12 +10,15 @@ export default function Login({
         const email = formData.get('email');
         const password = formData.get('password');
 
+        // very simple validation
         if(!email || !password){
 			return alert('email or password are requaired')
 		}
-
+        // fake API call
         try {
             onLogin(email, password);
+
+        //redirection    
             navigate('/');
             
         } catch (err) {
