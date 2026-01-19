@@ -6,6 +6,7 @@ import Footer from "./components/footer/Footer";
 import Home from "./components/home/Home";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
+import Logout from "./components/logout/Logout";
 
 export default function App() {
 	const [registerdUsers, setRegisterdUsers] = useState([]);
@@ -16,8 +17,12 @@ export default function App() {
 			throw new Error('A user with this email already exists.');
 		}
 
-		setRegisterdUsers(state => [...state, { email, password }]);
+		const newUser = {email, password}
+
+		setRegisterdUsers(state => [...state, { newUser}]);
 		//automatic login user
+		
+		setUser (newUser);
 	}
 
 	const loginHandler = (email, password) => {
@@ -33,6 +38,11 @@ export default function App() {
 			email, password
 		})
 	}
+
+	const logoutHandler = () => {
+		setUser(null);
+		
+	}
 	
 
   return (
@@ -43,6 +53,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login onLogin={loginHandler}/>} />
           <Route path="/register" element={<Register  onRegister={registerHandler} />} />
+          <Route path="/logout" element={<Logout  onLogout={logoutHandler} />} />
       </Routes>
       
       <Footer />

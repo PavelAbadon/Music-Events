@@ -12,7 +12,7 @@ export default function Header({ user }) {
         <a href="#">Create Event</a>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
-        <Link>Logout</Link>
+        <Link to="logout"> Logout</Link>
         {user
   		? <span>Welcome, {user.email}</span>
   		: <span>Hello guest</span>
