@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router";
+import useForm from "../../hooks/useForm";
 
 export default function Register({
 	onRegister,
@@ -6,11 +7,9 @@ export default function Register({
 	
 	const navigate = useNavigate();
 
-  	const registerSubmit = (formData) =>{
+  	const registerHandler = (values) =>{
 		
-		const email = formData.get('email');
-		const password = formData.get('password');
-		const repassword = formData.get('repassword');
+		const {email, password, repassword} = values
 
 	//todo validation
 		if(!email || !password){
@@ -29,14 +28,21 @@ export default function Register({
 			
 		} catch (err) {
 			alert(err.message);
+
 		}
 
 
   }
 
+  const {formAction, changeHandler, values} = useForm(registerHandler,{
+    email: '',
+    password: '',
+    repassword: ''
+  });
+
   return (
     <div className="auth-page">
-      <form className="auth-form" action={registerSubmit} >
+      <form className="auth-form" action={formAction} >
         <h2>Register</h2>
         
         <div className="form-group">
@@ -46,6 +52,8 @@ export default function Register({
             id="email"
             placeholder="metalhead@example.com"
             name="email"
+            onChange={changeHandler}
+            value={values.email}
           />
         </div>
 
@@ -56,6 +64,8 @@ export default function Register({
             id="password"
             placeholder="••••••••"
             name="password"
+            onChange={changeHandler}
+            value={values.password}
           />
         </div>
 
@@ -66,6 +76,8 @@ export default function Register({
             id="repassword"
             placeholder="••••••••"
             name="repassword"
+            onChange={changeHandler}
+            value={values.repassword}
           />
         </div>
 
