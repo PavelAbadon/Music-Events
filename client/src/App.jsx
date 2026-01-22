@@ -8,21 +8,31 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Logout from "./components/logout/Logout";
 
+
+
 export default function App() {
 	const [registerdUsers, setRegisterdUsers] = useState([]);
 	const [user, setUser] = useState(null);
 	
-	const registerHandler = (email, password) => {
-		if(registerdUsers.some(user => user.email === email )){
-			throw new Error('A user with this email already exists.');
-		}
-
+	const registerHandler = async (email, password) => {
 		const newUser = {email, password}
+
+		//TODO api Call
+		const response = await fetch ('http://localhost:3030/users/register', {
+			method:'POST',
+			headers: { 
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(newUser),
+		}, newUser);
+		
+		const result = await response.json();
+		console.log(result);
 
 		setRegisterdUsers(state => [...state,  newUser]);
 		//automatic login user
 		
-		setUser (newUser);
+		setUser (result);
 	}
 
 	const loginHandler = (email, password) => {

@@ -34,7 +34,7 @@ export default function Register({
 
   }
 
-  const {formAction, changeHandler, values} = useForm(registerHandler,{
+  const { formAction, register } = useForm(registerHandler,{
     email: '',
     password: '',
     repassword: ''
@@ -51,9 +51,7 @@ export default function Register({
             type="email"
             id="email"
             placeholder="metalhead@example.com"
-            name="email"
-            onChange={changeHandler}
-            value={values.email}
+            {...register('email')}
           />
         </div>
 
@@ -63,9 +61,7 @@ export default function Register({
             type="password"
             id="password"
             placeholder="••••••••"
-            name="password"
-            onChange={changeHandler}
-            value={values.password}
+            {...register('password')}
           />
         </div>
 
@@ -75,9 +71,7 @@ export default function Register({
             type="password"
             id="repassword"
             placeholder="••••••••"
-            name="repassword"
-            onChange={changeHandler}
-            value={values.repassword}
+            {...register('repassword')}
           />
         </div>
 

@@ -13,6 +13,14 @@ export default function useForm (callback, initialValues){
         await callback (values, formData)
     }
 
-    return{ values, changeHandler, formAction}
+    const register = (fieldName) => {
+        return {
+            name: fieldName,
+            onChange: changeHandler,
+            value: values[fieldName]
+        }
+    }
+
+    return{ values, changeHandler, formAction, register}
 
 }
