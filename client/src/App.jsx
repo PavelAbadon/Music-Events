@@ -30,20 +30,12 @@ export default function App() {
 		setUser (result);
 	}
 
-	const loginHandler = (email, password) => {
-
-		const foundUser = registerdUsers.find(user => user.email === email && user.password === password);
-		if(!foundUser){
-			throw new Error('Invalid user');
-		}
-
-		if(email !== foundUser.email || password !== foundUser.password){
-			throw new Error('Invalid email or password');
-		}
+	const loginHandler = async (email, password) => {
+		const user = {email, password}
+		const result = await request ('users/login', 'POST', user);
+		console.log(result);
 		
-		setUser({
-			email, password
-		})
+		setUser({ result })
 	}
 
 	const logoutHandler = () => {
@@ -65,7 +57,7 @@ export default function App() {
 
       <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login onLogin={loginHandler}/>} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/logout" element={<Logout  onLogout={logoutHandler} />} />
       </Routes>
