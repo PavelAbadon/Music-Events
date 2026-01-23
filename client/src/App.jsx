@@ -7,29 +7,24 @@ import Home from "./components/home/Home";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Logout from "./components/logout/Logout";
+import UserContext from "./contexts/UserContext";
+import UseRequest from "./hooks/useFetch";
 
 
 
 export default function App() {
-	const [registerdUsers, setRegisterdUsers] = useState([]);
 	const [user, setUser] = useState(null);
+	const {requsest} = UseRequest()
+
 	
 	const registerHandler = async (email, password) => {
 		const newUser = {email, password}
 
 		//TODO api Call
-		const response = await fetch ('http://localhost:3030/users/register', {
-			method:'POST',
-			headers: { 
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(newUser),
-		}, newUser);
-		
-		const result = await response.json();
+		const result = await requsest ('users/register', 'POST', newUser);
+
 		console.log(result);
 
-		setRegisterdUsers(state => [...state,  newUser]);
 		//automatic login user
 		
 		setUser (result);
@@ -55,20 +50,27 @@ export default function App() {
 		setUser(null);
 		
 	}
+
+	const userContextValues = { 
+		user, 
+		loginHandler, 
+		registerHandler, 
+		logoutHandler, 
+		isAuthtenticated: !! user?.accessToken }
 	
 
   return (
-    <>
+    <UserContext.Provider value={userContextValues}>
       <Header user={user}/>
 
       <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login onLogin={loginHandler}/>} />
-          <Route path="/register" element={<Register  onRegister={registerHandler} />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/logout" element={<Logout  onLogout={logoutHandler} />} />
       </Routes>
       
       <Footer />
-    </>
+    </UserContext.Provider>
   );
 }

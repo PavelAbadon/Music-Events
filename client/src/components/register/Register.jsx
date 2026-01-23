@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router";
 import useForm from "../../hooks/useForm";
+import { useContext } from "react";
+import UserContext from "../../contexts/UserContext";
 
-export default function Register({
-	onRegister,
-}) {
+export default function Register() {
 	
 	const navigate = useNavigate();
+  const { registerHandler } = useContext(UserContext)
 
-  	const registerHandler = (values) =>{
+  	const registerSubmitHandler = async (values) =>{
 		
 		const {email, password, repassword} = values
 
@@ -21,7 +22,7 @@ export default function Register({
 		}
 		try {
 			//todo Fake API call
-			onRegister(email, password);
+			await registerHandler(email, password);
 
 			//todo redirection
 			navigate('/');
@@ -34,7 +35,7 @@ export default function Register({
 
   }
 
-  const { formAction, register } = useForm(registerHandler,{
+  const { formAction, register } = useForm(registerSubmitHandler,{
     email: '',
     password: '',
     repassword: ''
