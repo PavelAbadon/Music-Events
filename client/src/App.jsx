@@ -14,14 +14,14 @@ import UseRequest from "./hooks/useFetch";
 
 export default function App() {
 	const [user, setUser] = useState(null);
-	const {requsest} = UseRequest()
+	const {request} = UseRequest()
 
 	
 	const registerHandler = async (email, password) => {
 		const newUser = {email, password}
 
 		//TODO api Call
-		const result = await requsest ('users/register', 'POST', newUser);
+		const result = await request ('users/register', 'POST', newUser);
 
 		console.log(result);
 
