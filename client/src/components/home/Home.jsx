@@ -13,6 +13,18 @@ export default function Home(){
         })();
     },[]);
 
+    const today = new Date().setHours(0, 0, 0, 0);
+    const eventDate = new Date(concerts.date).getTime();
+
+    const upcomingEvents = Object.values(concerts)
+    .filter(e => new Date(e.date).getTime() >= today)
+    .sort((a, b) => new Date(a.date) - new Date(b.date))
+    .slice(0, 3);
+
+
+
+
+
     return(
         <div className="home-page">
             <main className="main-content">
@@ -27,7 +39,14 @@ export default function Home(){
             <section className="events-section">
             <h3>Upcoming Events</h3>
             <div className="events-grid">
-                { concerts.map(concert => ( <EventCard key={concert._id} {...concert} /> ))}
+                {upcomingEvents.map(event => (
+            <article key={event._createdOn} className="event-card">
+                <img src={event.imageUrl} alt={event.band} />
+                <h3>{event.band}</h3>
+                <p>{event.location}</p>
+                <p>{event.date}</p>
+            </article>
+        ))}
             </div>
 
             </section>
