@@ -17,7 +17,7 @@ export default function Header() {
 
                 {isAuthtenticated && (
                     <>
-                        <Link to="/create">Create Event</Link>
+                        <Link to="/concerts/create">Create Event</Link>
                         <Link to="/logout">Logout</Link>
                     </>
                 )}

@@ -9,6 +9,7 @@ import Logout from "./components/logout/Logout";
 import Details from "./components/details/Details";
 import UserContext from "./contexts/UserContext";
 import { useContext } from "react";
+import CreateEvent from "./components/createEvent/CreateEvent";
 
 export default function App() {
 	const {user} = useContext(UserContext)
@@ -21,6 +22,7 @@ export default function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/concerts/:concertId/details" element={<Details user={user} />} />
+				<Route path="/concerts/create" element={<CreateEvent />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
 				<Route path="/logout" element={<Logout />} />
