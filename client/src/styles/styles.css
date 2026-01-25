@@ -228,4 +228,77 @@ body {
 .auth-switch span:hover {
   text-decoration: underline;
 }
+.event-details {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
 
+.details-card {
+  display: flex;
+  max-width: 900px;
+  background: #111;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.details-card img {
+  width: 40%;
+  object-fit: cover;
+}
+
+.details-info {
+  padding: 2rem;
+  width: 60%;
+}
+
+.details-info h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.details-info p {
+  margin: 0.5rem 0;
+}
+
+.summary {
+  margin-top: 1.5rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.details-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.btn.edit {
+  background: #457b9d;
+}
+
+.btn.delete {
+  background: #e63946;
+}
+.event-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #111;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.event-card:hover {
+  transform: scale(1.03);
+}

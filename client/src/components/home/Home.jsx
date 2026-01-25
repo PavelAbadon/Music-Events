@@ -14,20 +14,16 @@ export default function Home(){
     },[]);
 
     const today = new Date().setHours(0, 0, 0, 0);
-    const eventDate = new Date(concerts.date).getTime();
 
-    const upcomingEvents = Object.values(concerts)
+    const upcomingEvents = concerts
         .filter(e => new Date(e.date).getTime() >= today)
         .sort((a, b) => new Date(a.date) - new Date(b.date))
         .slice(0, 3);
 
-    const pastEvents = Object.values(concerts)
+    const pastEvents = concerts
         .filter(e => new Date(e.date).getTime() < today)
         .sort((a, b) => new Date(a.date) - new Date(b.date))
         .slice(0, 3);
-
-
-
 
     return(
         <div className="home-page">
@@ -43,14 +39,7 @@ export default function Home(){
             <section className="events-section">
             <h3>Upcoming Events</h3>
             <div className="events-grid">
-                {upcomingEvents.map(event => (
-            <article key={event._createdOn} className="event-card">
-                <img src={event.imageUrl} alt={event.band} />
-                <h3>{event.band}</h3>
-                <p>{event.location}</p>
-                <p>{event.date}</p>
-            </article>
-            ))}
+                {upcomingEvents.map(concert => (<EventCard key={concert._id} {...concert } /> ))}
             </div>
 
             </section>
@@ -58,14 +47,7 @@ export default function Home(){
             <section className="events-section">
             <h3>Concert Archive</h3>
             <div className="events-grid">
-                {pastEvents.map(event => (
-            <article key={event._createdOn} className="event-card">
-                <img src={event.imageUrl} alt={event.band} />
-                <h3>{event.band}</h3>
-                <p>{event.location}</p>
-                <p>{event.date}</p>
-            </article>
-            ))}
+                {pastEvents.map(concert => (<EventCard key={concert._id} {...concert } /> ))}
             </div>
 
             </section>

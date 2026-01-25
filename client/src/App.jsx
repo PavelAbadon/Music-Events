@@ -6,6 +6,7 @@ import Home from "./components/home/Home";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Logout from "./components/logout/Logout";
+import Details from "./components/details/Details";
 import UserContext from "./contexts/UserContext";
 import { useContext } from "react";
 
@@ -15,10 +16,11 @@ export default function App() {
 
 	return (
 		<>
-			<Header user={user} />
+			<Header />
 
 			<Routes>
 				<Route path="/" element={<Home />} />
+				<Route path="/concerts/:concertId/details" element={<Details user={user} />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
 				<Route path="/logout" element={<Logout />} />
