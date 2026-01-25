@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-export default function Header({ user }) {
+export default function Header() {
   return (
     <header className="site-header">
       <div className="logo">
@@ -13,10 +13,6 @@ export default function Header({ user }) {
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
         <Link to="logout"> Logout</Link>
-        {user
-  		? <span>Welcome, {user.email}</span>
-  		: <span>Hello guest</span>
-		}
       </nav>
     </header>
   );
