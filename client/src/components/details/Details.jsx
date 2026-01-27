@@ -39,10 +39,10 @@ export default function EventDetails() {
 
                     {isOwner && (
                         <div className="details-actions">
-                            <Link to={`/events/${concertId}/edit`} className="btn edit">
+                            <Link to={`/concerts/${concertId}/edit`} className="btn edit">
                                 Edit
                             </Link>
-                            <Link to={`/events/${concertId}/delete`} className="btn delete">
+                            <Link to={`/concerts/${concertId}/delete`} className="btn delete">
                                 Delete
                             </Link>
                         </div>
