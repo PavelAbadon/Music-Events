@@ -1,75 +1,73 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router";
+import EventContext from "../../contexts/EventContext";
+import useForm from "../../hooks/useForm";
+
 export default function CreateEvent() {
+    const navigate = useNavigate();
+    const { createConcertHandler } = useContext(EventContext);
+
+    const submitHandler = async (values) => {
+        try {
+            const createdConcert = await createConcertHandler(values);
+            navigate(`/concerts/${createdConcert._id}/details`);
+        } catch (err) {
+            alert(err.message);
+        }
+    };
+
+    const { register, formAction } = useForm(submitHandler, {
+        band: '',
+        date: '',
+        location: '',
+        genre: '',
+        audience: '',
+        imageUrl: '',
+        summary: '',
+    });
+
     return (
         <section className="event-form-page">
             <div className="form-card">
                 <h2>Create New Concert</h2>
 
-                <form className="event-form">
+                <form className="event-form" action={formAction}>
                     <label>
                         Band Name
-                        <input
-                            type="text"
-                            name="band"
-                            placeholder="Enter band name"
-                        />
+                        <input type="text" {...register('band')} />
                     </label>
 
                     <label>
                         Date
-                        <input
-                            type="date"
-                            name="date"
-                        />
+                        <input type="date" {...register('date')} />
                     </label>
 
                     <label>
                         Location
-                        <input
-                            type="text"
-                            name="location"
-                            placeholder="Venue and city"
-                        />
+                        <input type="text" {...register('location')} />
                     </label>
 
                     <label>
                         Genre
-                        <input
-                            type="text"
-                            name="genre"
-                            placeholder="Metal genre"
-                        />
+                        <input type="text" {...register('genre')} />
                     </label>
 
                     <label>
                         Audience
-                        <input
-                            type="number"
-                            name="audience"
-                            placeholder="Expected audience"
-                        />
+                        <input type="number" {...register('audience')} />
                     </label>
 
                     <label>
                         Image URL
-                        <input
-                            type="text"
-                            name="imageUrl"
-                            placeholder="https://..."
-                        />
+                        <input type="text" {...register('imageUrl')} />
                     </label>
 
                     <label>
                         Summary
-                        <textarea
-                            name="summary"
-                            rows="4"
-                            placeholder="Short description of the event"
-                        />
+                        <textarea rows="4" {...register('summary')} />
                     </label>
 
-                    <button className="btn submit-btn" type="submit">
-                        Create Event
-                    </button>
+                    <button className="btn submit-btn">Create Event</button>
                 </form>
             </div>
         </section>

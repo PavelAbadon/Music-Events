@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import EventCard from "../eventCard/EventCard";
+import { Link } from "react-router";
 
 
 export default function Home(){
@@ -38,7 +39,7 @@ export default function Home(){
 
             <section className="events-section">
             <h3>Upcoming Events</h3>
-            <div className="events-grid">
+            <div  className="events-grid">
                 {upcomingEvents.map(concert => (<EventCard key={concert._id} {...concert } /> ))}
             </div>
 
@@ -46,7 +47,7 @@ export default function Home(){
 
             <section className="events-section">
             <h3>Concert Archive</h3>
-            <div className="events-grid">
+            <div  className="events-grid">
                 {pastEvents.map(concert => (<EventCard key={concert._id} {...concert } /> ))}
             </div>
 
