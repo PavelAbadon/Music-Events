@@ -33,7 +33,7 @@ export default function EditEvent() {
         request(`/data/concerts/${concertId}`)
             .then(data => setValues(data))
             .catch(err => alert(err.message));
-    }, [concertId]);
+    }, [concertId, setValues]);
 
     return (
         <section className="event-form-page">

@@ -11,6 +11,7 @@ import UserContext from "./contexts/UserContext";
 import { useContext } from "react";
 import CreateEvent from "./components/createEvent/CreateEvent";
 import EditEvent from "./components/editEvent/editEvent";
+import DeleteEvent from "./components/deleteEvent/DeleteEvent";
 
 export default function App() {
 	const {user} = useContext(UserContext)
@@ -24,6 +25,7 @@ export default function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/concerts/:concertId/details" element={<Details user={user} />} />
 				<Route path="/concerts/:concertId/edit" element={<EditEvent user={user} />} />
+				<Route path="/concerts/:concertId/delete" element={<DeleteEvent user={user} />} />
 				<Route path="/concerts/create" element={<CreateEvent />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
