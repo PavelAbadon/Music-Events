@@ -25,7 +25,7 @@ export function UserProvider (props) {
 		const newUser = {email, password}
 
 		//TODO api Call
-		const result = await request ('users/register', 'POST', newUser);
+		const result = await request ('/users/register', 'POST', newUser);
 
 		console.log(result);
 
