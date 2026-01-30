@@ -1,49 +1,50 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import EventCard from "../eventCard/EventCard";
 
-export default function EventsPage() {
-    const [events, setEvents] = useState([]);
-    const [filter, setFilter] = useState("upcoming"); // default
-
-    useEffect(() => {
-        fetch("http://localhost:3030/data/concerts")
-            .then(res => res.json())
-            .then(data => setEvents(Object.values(data)));
-    }, []);
-
+export default function EventsPage({type}) {
+    const [ concerts, setConcerts ] = useState([]);
     const today = new Date().setHours(0, 0, 0, 0);
 
-    const filteredEvents = events
-        .filter(e =>
-            filter === "upcoming"
-                ? new Date(e.date).getTime() >= today
-                : new Date(e.date).getTime() < today
-        )
-        .sort((a, b) =>
-            filter === "upcoming"
-                ? new Date(a.date) - new Date(b.date)
-                : a.band.localeCompare(b.band)
-        );
+    useEffect(() =>{
+            (async ()=>{
+                const response = await fetch('http://localhost:3030/data/concerts');
+                const result = await response.json();
+                setConcerts(Object.values(result));
+            })();
+        },[]);
+
+    const upcomingEvents = concerts
+        .filter(e => new Date(e.date).getTime() >= today)
+        .sort((a, b) => new Date(a.date) - new Date(b.date)); 
+
+    const pastEvents = concerts
+        .filter(e => new Date(e.date).getTime() < today)
+        .sort((a, b) => a.band.localeCompare(b.band));
 
     return (
-        <section className="events-page">
-            <h2>Events</h2>
-
-            {/* 🔽 DROPDOWN */}
-            <select
-                value={filter}
-                onChange={(e) => setFilter(e.target.value)}
-                className="events-filter"
-            >
-                <option value="upcoming">Upcoming Events</option>
-                <option value="archive">Concert Archive</option>
-            </select>
-
+     <section className="events-section">
+    {type === "upcoming" && (
+        <>
+            <h3>Upcoming Events</h3>
             <div className="events-grid">
-                {filteredEvents.map(event => (
-                    <EventCard key={event._id} event={event} />
+                {upcomingEvents.map(concert => (
+                    <EventCard key={concert._id} {...concert} />
                 ))}
             </div>
-        </section>
-    );
+        </>
+    )}
+
+    {type === "archive" && (
+        <>
+            <h3>Concert Archive</h3>
+            <div className="events-grid">
+                {pastEvents.map(concert => (
+                    <EventCard key={concert._id} {...concert} />
+                ))}
+            </div>
+        </>
+    )}
+</section>
+  
+    )
 }

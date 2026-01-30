@@ -27,7 +27,8 @@ export default function App() {
 				<Route path="/concerts/:concertId/details" element={<Details user={user} />} />
 				<Route path="/concerts/:concertId/edit" element={<EditEvent user={user} />} />
 				<Route path="/concerts/:concertId/delete" element={<DeleteEvent user={user} />} />
-				<Route path="/concerts" element={<EventsPage user={user} />} />
+				<Route path="/events/upcoming" element={<EventsPage type="upcoming" />} />
+				<Route path="/events/archive" element={<EventsPage type="archive" />} />
 				<Route path="/concerts/create" element={<CreateEvent />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />

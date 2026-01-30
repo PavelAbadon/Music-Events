@@ -23,7 +23,7 @@ export default function Home(){
 
     const pastEvents = concerts
         .filter(e => new Date(e.date).getTime() < today)
-        .sort((a, b) => new Date(a.date) - new Date(b.date))
+        .sort((a, b) => a.band.localeCompare(b.band))
         .slice(0, 3);
 
     return(
