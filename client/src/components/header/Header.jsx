@@ -13,7 +13,15 @@ export default function Header() {
 
             <nav className="nav-links">
                 <Link to="/">Home</Link>
-                <Link to="/events">Events</Link>
+                <div className="nav-item dropdown">
+                    <span className="dropdown-title">Events</span>
+
+                    <div className="dropdown-menu">
+                        <Link to="/events/upcoming">Upcoming Events</Link>
+                        <Link to="/events/archive">Concert Archive</Link>
+                    </div>
+                </div>
+
 
                 {isAuthtenticated && (
                     <>

@@ -366,4 +366,46 @@ body {
 .submit-btn:hover {
     background: #d32f2f;
 }
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.dropdown-title {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #111;
+    border: 1px solid #333;
+    min-width: 180px;
+    display: none;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.dropdown-menu a {
+    padding: 10px 14px;
+    text-decoration: none;
+    color: white;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background: #222;
+}
+
+/* 🎯 hover trigger */
+.dropdown:hover .dropdown-menu {
+    display: flex;
+}
 
